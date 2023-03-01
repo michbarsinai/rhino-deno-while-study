@@ -24,7 +24,7 @@ SeleniumBasedTests> ./provengo run ~/sandbox/while-study
                                /___/
 [SETUP] INFO Input path: /Users/michael/sandbox/while-study
 [EXEC] INFO Preparing to run
-[EXEC>rnd] INFO [BP][Info] const in loop <.>
+[EXEC>rnd] INFO [BP][Info] const in loop                                <.>
 [EXEC>rnd] INFO [BP][Info] 2
 [EXEC>rnd] INFO [BP][Info] 2
 [EXEC>rnd] INFO [BP][Info] 2
@@ -44,7 +44,7 @@ SeleniumBasedTests> ./provengo run ~/sandbox/while-study
 [EXEC>rnd] INFO B-program ended
 [EXEC] INFO Test Result: SUCCESS
 SeleniumBasedTests> deno run ~/sandbox/while-study/spec/js/hello-world.js
-const in loop  <.>
+const in loop                                                             <.>
 2
 1
 0
