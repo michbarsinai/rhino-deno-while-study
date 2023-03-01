@@ -5,7 +5,7 @@
 
 A study of how a `while` variables in a loop behave in Rhino and https://deno.land/[Deno.js].
 
-The output below is from running `spec/js/hello-world.js` in this repo. As you can see, Rhino and Deno behave differently for ``const``s that are defined in the loop's body:
+The output below is from running link:/spec/js/hello-world.js[`/spec/js/hello-world.js`] in this repo. As you can see, Rhino and Deno behave differently for ``const``s that are defined in the loop's body:
 
 Rhino::
   Keeps the value assigned at the first iteration.
