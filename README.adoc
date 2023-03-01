@@ -1,3 +1,6 @@
+:source-highlighter: pygments
+:pygments-style: emacs
+:icons: font
 # while-study: https://deno.land/[Deno.js] vs Provengo/Rhino
 
 A study of how a `while` variables in a loop behave in Rhino and https://deno.land/[Deno.js].
@@ -9,7 +12,7 @@ Rhino::
 Deno::
   Value is updated each iteration (``const``s are removed once they go out of scope, I guess)
 
-[source,shell]
+[source,console,linenums,highlight='7-9']
 ----
 SeleniumBasedTests> ./provengo run ~/sandbox/while-study
   /\
