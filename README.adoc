@@ -1,0 +1,62 @@
+# while-study: https://deno.land/[Deno.js] vs Provengo/Rhino
+
+A study of how a `while` variables in a loop behave in Rhino and https://deno.land/[Deno.js].
+
+The output below is from running `spec/js/hello-world.js` in this repo. As you can see, Rhino and Deno behave differently for ``const``s that are defined in the loop's body:
+
+Rhino::
+  Keeps the value assigned at the first iteration.
+Deno::
+  Value is updated each iteration (``const``s are removed once they go out of scope, I guess)
+
+[source,shell]
+----
+SeleniumBasedTests> ./provengo run ~/sandbox/while-study
+  /\
+ /XX\
+{XXXX#####################################
+ \XX/ / _ \_______ _  _____ ___  ___  ___
+  \/ / ___/ __/ _ \ |/ / -_) _ \/ _ \/ _ \
+    /_/  /_/  \___/___/\__/_//_/\_, /\___/
+                               /___/
+[SETUP] INFO Input path: /Users/michael/sandbox/while-study
+[EXEC] INFO Preparing to run
+[EXEC>rnd] INFO [BP][Info] const in loop <.>
+[EXEC>rnd] INFO [BP][Info] 2
+[EXEC>rnd] INFO [BP][Info] 2
+[EXEC>rnd] INFO [BP][Info] 2
+[EXEC>rnd] INFO [BP][Info] let in loop
+[EXEC>rnd] INFO [BP][Info] 2
+[EXEC>rnd] INFO [BP][Info] 1
+[EXEC>rnd] INFO [BP][Info] 0
+[EXEC>rnd] INFO [BP][Info] var in loop
+[EXEC>rnd] INFO [BP][Info] 2
+[EXEC>rnd] INFO [BP][Info] 1
+[EXEC>rnd] INFO [BP][Info] 0
+[EXEC>rnd] INFO [BP][Info] let above loop
+[EXEC>rnd] INFO [BP][Info] 2
+[EXEC>rnd] INFO [BP][Info] 1
+[EXEC>rnd] INFO [BP][Info] 0
+[EXEC>rnd] INFO B-program started
+[EXEC>rnd] INFO B-program ended
+[EXEC] INFO Test Result: SUCCESS
+SeleniumBasedTests> deno run ~/sandbox/while-study/spec/js/hello-world.js
+const in loop  <.>
+2
+1
+0
+let in loop
+2
+1
+0
+var in loop
+2
+1
+0
+let above loop
+2
+1
+0
+----
+<.> While loop in Rhino: `const` value stays the same, even though it's defined in the loop.
+<.> While loop in Deno: `const` value changes in each iteration.
